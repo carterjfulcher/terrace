@@ -36,6 +36,58 @@ myIndex.auditMembers(ignoreFailures=True)
 
 ```
 
+## Documentation
+
+### Indexes
+
+Creating an Index is as easy as:
+
+```python3
+from terrace import Index
+
+def audit(component: IndexComponent):
+  pass
+
+def create(universe):
+  pass
+
+myIndex = Index(
+  identifier="MyIndex",
+  strategy=(audit, create)
+)
+```
+
+The `audit` and `create` functions make up the strategy / methodology of the index.
+
+### Index Components
+
+### Writing Audit Functions
+
+Audit functions are a set of assert statements that verify each `IndexComponent` is eligible via the methodology.
+
+In an `audit` function, the `IndexComponent` is the only parameter. Every data point that the `IndexComponent` was initialized with
+is avaialble in this function (see section above for details regarding `IndexComponent` creation). Take the below example, which audits an
+index to ensure eligiblity for something similiar to the `S&P 500 Index`:
+
+```
+def audit(component: IndexComponent):
+  assert(component['marketCap'] > 14600000000) # $14.6B+ market cap
+  assert(component['closePrice'] > 5) # not a penny stock
+  assert(component['countryOfDomicile'] == 'US') # US Based
+```
+
+### Writing Create Functions
+
+### Automated Rebalances
+
+### Automated Reconstitutions
+
+### Pre / Post Trade Auditing
+
+### Calculation
+
+### Dissemination
+
 ```
 Results:
 ✅ BLDR UN Equity passed
