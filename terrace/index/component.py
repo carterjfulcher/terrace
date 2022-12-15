@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import List, Any
+from typing import List, Dict
 import pandas as pd 
 import numpy as np
 
@@ -28,11 +28,15 @@ class IndexComponent:
     return components
 
   @classmethod 
-  def fromCsv(self, path: str):
+  def fromCsv(self, path: str) -> List:
     return self.__process_dataframe(pd.read_csv(path))
 
   @classmethod
-  def fromExcel(self, path: str):
+  def fromExcel(self, path: str) -> List:
     with open(path ,mode="rb") as excel_file:
       df = pd.read_excel(excel_file)
       return self.__process_dataframe(df)
+  
+  @classmethod 
+  def fromRecords(self, list: List[Dict], identifier_key: str):
+    return [IndexComponent(record[identifier_key], 1 / len(list)) for record in list]

@@ -32,8 +32,8 @@ class Index:
       elif self.weightingMethod == WeightingMethod.MARKET_CAP_WEIGHT:
         component.weight = component.marketCap / sum([component.marketCap for component in self.components])
 
-  def autoReconstitute(self):
-    pass
+  def autoReconstitute(self, universe):
+    self.components = self.create(universe)
 
   def auditMembers(self, ignoreFailures = False):
     print(f"Auditing {self.identifier} members...")
