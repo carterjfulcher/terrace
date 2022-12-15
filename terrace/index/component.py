@@ -7,17 +7,12 @@ import numpy as np
 class IndexComponent:
   identifier: str 
   weight: float
-  _data: dict = None 
+  _data: dict = None
 
-  # make values from _data available as attributes
-  def __getattribute__(self, __name: str) -> Any:
-    if __name == "_data":
-      return super().__getattribute__("_data")
-    elif __name in self._data:
-      return self._data[__name]
-    else:
-      return super().__getattribute__(__name)
-
+  def __getitem__(self, __name):
+    if __name in self.__dict__.keys():
+      return self.__dict__[__name]
+    return self._data[__name]
 
   @classmethod 
   def fromList(self, list: List[str]):

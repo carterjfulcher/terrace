@@ -26,6 +26,7 @@ def test_component_audit(index ):
 def test_rebalance(index):
     index.components = [IndexComponent("AAPL", 0.25), IndexComponent("MSFT", 0.75)]
     index.autoRebalance()
+    print(index.components)
     assert(index.components[0].weight == 0.5)
     assert(index.components[1].weight == 0.5)
     assert(sum([components.weight for components in index.components]) == 1)

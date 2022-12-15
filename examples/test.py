@@ -1,3 +1,4 @@
+
 """
 Basic Index
 """
@@ -5,7 +6,7 @@ Basic Index
 from terrace import Index, IndexComponent
 
 def audit(component: IndexComponent):
-  assert(component['closing'] > 50)
+  assert component.identifier == "AAPL"
 
 def create(universe):
   pass 
@@ -15,10 +16,16 @@ myIndex = Index(
   strategy=(audit, create)
 )
 
-myIndex.components = IndexComponent.fromExcel("./opening.xls")
+v = IndexComponent('AAPL', 1.0, {'test': 'hello'})
+
+myIndex.components = [v]
+
+
 
 myIndex.autoRebalance()
 myIndex.auditMembers(ignoreFailures=True)
+
+print(myIndex)
 
 """
 Auditing MyIndex members...
