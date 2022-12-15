@@ -1,4 +1,4 @@
-# Terrace
+<img src="https://user-images.githubusercontent.com/23005868/207764881-af11b355-6094-4ee3-9855-520b103c5e40.png" alt="drawing" width="500"/>
 
 Open source platform for financial index creation, management, and operations.
 
