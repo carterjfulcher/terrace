@@ -1,6 +1,5 @@
 from terrace import Index
 from terrace.index.component import IndexComponent
-from terrace.types import IndexType, Frequency, WeightingMethod
 import pytest
 
 @pytest.fixture
