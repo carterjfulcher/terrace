@@ -42,4 +42,9 @@ Results:
 ✅ CALX UN Equity passed
 ✅ CAR UW Equity passed
 CCBG UW Equity is not in compliance with the rulset !!
+
+...
+
+Passed: 46 Failed: 52 Total: 98 (46.94%) in 0.0s
+
 ```
