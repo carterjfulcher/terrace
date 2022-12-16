@@ -40,7 +40,7 @@ class Index:
   def autoReconstitute(self, universe):
     self.components = self.create(universe)
 
-  def auditMembers(self, ignoreFailures = False):
+  def auditMembers(self, ignoreFailures = False, removeFailures=False):
     print(f"Auditing {self.identifier} members...")
     passed, failed = 0, 0
     start_time = time.time()
@@ -52,6 +52,9 @@ class Index:
       except AssertionError as e:
         failed +=1 
         print(colored(f"❌ {component.identifier} is not in compliance with the rulset !!", "red"))
+        if removeFailures:
+          self.components.remove(component)
+          continue 
         if ignoreFailures:
           continue 
         return False
