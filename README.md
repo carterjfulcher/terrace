@@ -171,7 +171,24 @@ Index.autoRebalance(customWeightingMethod=customWeightingMethod)
 
 ### Automated Reconstitutions
 
+Automated Reconstitutions (or reconstructions) use the `create` method
+defined in `Index` creation. The create method can accept any data,
+and yields a list of `IndexComponent`s.
+
+```python
+
+Index.autoReconstitute(df)
+
+```
+
 ### Pre / Post Trade Auditing
+
+```python
+auditMembers(
+  ignoreFailures = False, # if True, auditMembers will check every member
+  removeFailures=False # will remove the member
+)
+```
 
 ### Calculation
 
