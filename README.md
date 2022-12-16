@@ -158,13 +158,13 @@ Index.autoRebalance(marketCapDataKey="marketCap", auditResults=True)
 ```python
 from terrace.types import WeightingMethod
 
+""" Create a price weighted index """
+
 def customWeightingMethod(components, members):
   prices_sum = sum([member['price'] for member in members])
 
-""" Create a price weighted index """
-
-Index.weightingMethod = WeightingMethod.MARKET_CAP_WEIGHT
-Index.autoRebalance(marketCapDataKey="marketCap", auditResults=True)
+Index.weightingMethod = WeightingMethod.CUSTOM_WEIGHT
+Index.autoRebalance(customWeightingMethod=customWeightingMethod)
 ```
 
 ### Automated Reconstitutions
