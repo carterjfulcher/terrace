@@ -31,8 +31,12 @@ class Index:
       pickle.dump(self, output, pickle.HIGHEST_PROTOCOL)
 
   @classmethod 
-  def load(self, path: str):
+  def load(self, path: str, strategy: Tuple[Callable, Callable] = None):
     with open(path, "rb") as input:
+      if strategy:
+        index = pickle.load(input)
+        index.audit, index.create = strategy
+        return index
       return pickle.load(input)
 
   def autoRebalance(self, marketCapDataKey="marketCap", customWeightingMethod=None, auditResults=False):
