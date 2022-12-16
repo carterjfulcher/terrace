@@ -3,7 +3,7 @@ from typing import List, Callable, Tuple
 from .component import IndexComponent
 from termcolor import colored
 import time 
-import json
+import pickle 
 
 class Index:
   def __init__(self, 
@@ -27,12 +27,13 @@ class Index:
 
   # save and load Index to json
   def save(self, path: str):
-    with open(path, "w") as file:
-      file.write(json.dumps(self.__dict__))
-  
+    with open(path, "wb") as output:
+      pickle.dump(self, output, pickle.HIGHEST_PROTOCOL)
+
+  @classmethod 
   def load(self, path: str):
-    with open(path, "r") as file:
-      self.__dict__ = json.loads(file.read())
+    with open(path, "rb") as input:
+      return pickle.load(input)
 
   def autoRebalance(self, marketCapDataKey="marketCap", customWeightingMethod=None, auditResults=False):
     for component in self.components:
