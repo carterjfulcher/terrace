@@ -25,12 +25,17 @@ class Index:
     self.audit, self.create = strategy
     self.components = components
 
-  def autoRebalance(self, marketCapDataKey="marketCap"):
+  def autoRebalance(self, marketCapDataKey="marketCap", customWeightingMethod=None, auditResults=False):
     for component in self.components:
       if self.weightingMethod == WeightingMethod.EQUAL_WEIGHT:
         component.weight = 1 / len(self.components)
       elif self.weightingMethod == WeightingMethod.MARKET_CAP_WEIGHT:
         component.weight = component[marketCapDataKey] / sum([component[marketCapDataKey] for component in self.components])
+      elif self.weightingMethod == WeightingMethod.CUSTOM_WEIGHT:
+        component.weight = customWeightingMethod(component, self.components)
+
+    if auditResults:
+      self.auditMembers()
 
   def autoReconstitute(self, universe):
     self.components = self.create(universe)
