@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import List, Dict
+from typing import List, Dict, Optional
 import pandas as pd 
 import numpy as np
 
@@ -7,9 +7,9 @@ import numpy as np
 class IndexComponent:
   identifier: str 
   weight: float
-  _spotPrice: float = np.nan
-  _change: float = np.nan
-  _data: dict = None
+  _spotPrice: Optional[float] = np.nan
+  _change: Optional[float] = np.nan
+  _data: Optional[dict] = None
 
   def __getitem__(self, __name):
     if __name in self.__dict__.keys():
