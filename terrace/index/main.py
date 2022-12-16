@@ -33,6 +33,7 @@ class Index:
   # save and load Index to json
   def save(self, path: str):
     with open(path, "wb") as output:
+      self.audit, self.create = None, None
       pickle.dump(self, output, pickle.HIGHEST_PROTOCOL)
 
   @classmethod 

@@ -30,3 +30,9 @@ def test_rebalance(index):
     assert(index.components[0].weight == 0.5)
     assert(index.components[1].weight == 0.5)
     assert(sum([components.weight for components in index.components]) == 1)
+
+def test_save_load(index):
+    index.components = [IndexComponent("AAPL", 0.25), IndexComponent("MSFT", 0.75)]
+    index.save("test.pkl")
+    index2 = Index.load("test.pkl")
+    assert(sum([components.weight for components in index2.components]) == 1)
