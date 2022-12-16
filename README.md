@@ -17,7 +17,7 @@ Open source platform for financial index creation, management, and operations.
 
 The below creates an index of all securities with a share price of greater than $50, and rebalances it to equal weights. Then, audits the members
 
-```python3
+```python
 from terrace import Index, IndexComponent
 
 def audit(component: IndexComponent):
@@ -44,7 +44,7 @@ myIndex.auditMembers(ignoreFailures=True)
 
 Creating an Index is as easy as:
 
-```python3
+```python
 from terrace import Index
 
 def audit(component: IndexComponent):
@@ -71,7 +71,7 @@ In an `audit` function, the `IndexComponent` is the only parameter. Every data p
 is avaialble in this function (see section above for details regarding `IndexComponent` creation). Take the below example, which audits an
 index to ensure eligiblity for something similiar to the `S&P 500 Index`:
 
-```
+```python
 def audit(component: IndexComponent):
   assert(component['marketCap'] > 14600000000) # $14.6B+ market cap
   assert(component['closePrice'] > 5) # not a penny stock
@@ -79,6 +79,34 @@ def audit(component: IndexComponent):
 ```
 
 ### Writing Create Functions
+
+Create functions take a universe of securities as an input, and filter and
+reduce the list until the index is remaining as desired. An exmaple create function is below.
+
+The create function you pass when creating an index is called by
+`Index.autoReconstitute(universe)`. The type of universe can be anything
+you want as long as the `create` function returns a list of `IndexComponent`s. The below examples feature the use of objects as well
+as a dataframe.
+
+```python
+# pass dicts
+def create(universe: Any) -> List[IndexComponent]:
+  pass
+
+
+# use a dataframe
+def create(universe: pd.DataFrame) -> List[IndexComponent]:
+  print(df.head())
+  """
+               id                    name      cusip        country  closing currency
+0  ACGL UW Equity  ARCH CAPITAL GROUP LTD  G0450A105        BERMUDA    60.32      USD
+1  AMKR UW Equity  AMKOR TECHNOLOGY INC  031652100  UNITED STATES    26.46      USD
+  """
+
+  df = df[df['closing'] > 50]
+
+  return IndexComponent.fromDataFrame(df) # returns list of IndexComponents
+```
 
 ### Automated Rebalances
 

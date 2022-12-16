@@ -31,6 +31,10 @@ class IndexComponent:
   def fromCsv(self, path: str) -> List:
     return self.__process_dataframe(pd.read_csv(path))
 
+  @classmethod 
+  def fromDataFrame(self, df: pd.DataFrame) -> List:
+    return self.__process_dataframe(df)
+
   @classmethod
   def fromExcel(self, path: str) -> List:
     with open(path ,mode="rb") as excel_file:
