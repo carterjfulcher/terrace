@@ -2,8 +2,8 @@ from terrace.types import IndexType, Frequency, WeightingMethod
 from typing import List, Callable, Tuple
 from .component import IndexComponent
 from termcolor import colored
-from dataclasses import dataclass
 import time 
+import json
 
 class Index:
   def __init__(self, 
@@ -24,6 +24,15 @@ class Index:
     self.weightingMethod = weightingMethod
     self.audit, self.create = strategy
     self.components = components
+
+  # save and load Index to json
+  def save(self, path: str):
+    with open(path, "w") as file:
+      file.write(json.dumps(self.__dict__))
+  
+  def load(self, path: str):
+    with open(path, "r") as file:
+      self.__dict__ = json.loads(file.read())
 
   def autoRebalance(self, marketCapDataKey="marketCap", customWeightingMethod=None, auditResults=False):
     for component in self.components:
