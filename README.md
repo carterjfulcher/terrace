@@ -63,6 +63,24 @@ The `audit` and `create` functions make up the strategy / methodology of the ind
 
 ### Index Components
 
+`IndexComponent`s are a dynamic building block for `Index`s. The two attributes they contain
+is an `identifier` and a `weight`. Any other param passed in the initialization will be saved
+as an attribute for use in `audit` functions.
+
+#### Methods
+
+The following methods initialize a _list_ of `IndexComponent`s from a source. `IndexComponent`s can
+be initialized from any source with any amount of rows/datapoints. The only required datapoint
+for an `IndexComponent` is an identifier.
+
+`fromCsv` - Returns a list of `IndexComponent`s from a CSV file. Will utilize the first column as the `identifier`
+
+`fromDataFrame` - Returns a list of `IndexComponent`s from a Pandas Dataframe. Will utilize the first column as the `identifier`
+
+`fromExcel` - Returns a list of `IndexComponent`s from an Excel file. Will utilize the first column as the `identifier`
+
+`fromRecords` - Accepts a list of dicts as the first arguement, and an `identifier_key` to determine which key to set the identifier as. Returns list of `IndexComponent`s
+
 ### Writing Audit Functions
 
 Audit functions are a set of assert statements that verify each `IndexComponent` is eligible via the methodology.
@@ -90,13 +108,20 @@ as a dataframe.
 
 ```python
 # pass dicts
-def create(universe: Any) -> List[IndexComponent]:
-  pass
-
+def create(universe: List[Dict[str, Any]]) -> List[IndexComponent]:
+  print(universe)
+  """
+  [
+    {id: "ACGL UW Equity", "closing": 60.32},
+    {id: "AMKR UW Equity", "closing": 26.46}
+  ]
+  """
+  universe = [i for i in universe if i['closing'] > 50]
+  return IndexComponent.fromRecords(universe)
 
 # use a dataframe
 def create(universe: pd.DataFrame) -> List[IndexComponent]:
-  print(df.head())
+  print(universe.head())
   """
                id                    name      cusip        country  closing currency
 0  ACGL UW Equity  ARCH CAPITAL GROUP LTD  G0450A105        BERMUDA    60.32      USD
