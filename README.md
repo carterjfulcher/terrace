@@ -8,7 +8,7 @@ Open source platform for financial index creation, management, and operation
 
 - Index calculation\*
 - Pre/Post Trade audits
-- Index dissemination\*
+- Index dissemination (via HTTP, RPC, or FTP)\*
 - Automatic rebalance and reconstitution
 - Quickly create and test indices
 - Backtesting integration with Fulcher Analytics\*
