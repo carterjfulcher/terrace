@@ -2,7 +2,7 @@
 
 [![Test](https://github.com/carterjfulcher/terrace/actions/workflows/test.yaml/badge.svg)](https://github.com/carterjfulcher/terrace/actions/workflows/test.yaml)
 
-Open source platform for financial index creation, management, and operations.
+Open source platform for financial index creation, management, and operation
 
 ## Features
 
