@@ -7,8 +7,8 @@ import numpy as np
 class IndexComponent:
   identifier: str 
   weight: float
-  _spotPrice: float
-  _change: float
+  _spotPrice: float = np.nan
+  _change: float = np.nan
   _data: dict = None
 
   def __getitem__(self, __name):
