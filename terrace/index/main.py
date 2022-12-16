@@ -4,6 +4,7 @@ from .component import IndexComponent
 from termcolor import colored
 import time 
 import pickle 
+import numpy as np 
 
 class Index:
   def __init__(self, 
@@ -24,6 +25,10 @@ class Index:
     self.weightingMethod = weightingMethod
     self.audit, self.create = strategy
     self.components = components
+    self.itialPrice = 100
+
+
+    self.price: np.array = []
 
   # save and load Index to json
   def save(self, path: str):
@@ -38,6 +43,17 @@ class Index:
         index.audit, index.create = strategy
         return index
       return pickle.load(input)
+
+  def __update_spot_price(self, dataSource):
+    for component in self.components:
+      component._spotPrice, component._change = dataSource.fetchSpotPrice(component)
+
+  def __calculate(self, dataSource: Callable, auditResults=False):
+    self.__update_spot_price(dataSource)
+    change = sum([i._change * i.weight for i in self.components])
+    self.price.append(change * self.price[-1] if self.price else self.itialPrice)
+    if auditResults:
+      self.auditMembers()
 
   def autoRebalance(self, marketCapDataKey="marketCap", customWeightingMethod=None, auditResults=False):
     for component in self.components:
