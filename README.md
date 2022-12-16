@@ -6,12 +6,14 @@ Open source platform for financial index creation, management, and operations.
 
 ## Features
 
-- Index calculation
+- Index calculation\*
 - Pre/Post Trade audits
-- Index dissemination
+- Index dissemination\*
 - Automatic rebalance and reconstitution
 - Quickly create and test indices
-- Backtesting integration with Fulcher Analytics
+- Backtesting integration with Fulcher Analytics\*
+
+Note: Items with an \* are still under development
 
 ## Example
 
