@@ -1,5 +1,5 @@
 from .main import DataSource
-from typing import List
+from typing import List, Tuple
 from index.component import IndexComponent
 
 class IEXDataSource(DataSource):
@@ -7,7 +7,7 @@ class IEXDataSource(DataSource):
     self.api_key = api_key
     self.base_url = base_url 
 
-  def fetch_price(self, component: IndexComponent):
+  def fetch_price(self, component: IndexComponent) -> Tuple[float, float]:
     pass
 
   def fetch_price_bulk(self, components: List[IndexComponent]):
