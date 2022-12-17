@@ -6,7 +6,7 @@ Open source platform for financial index creation, management, and operation
 
 ## Features
 
-- Index calculation\*
+- Index calculation
 - Pre/Post Trade audits
 - Index dissemination (via HTTP, RPC, or FTP)\*
 - Automatic rebalance and reconstitution

@@ -1,5 +1,5 @@
 from typing import List, Tuple
-from index.component import IndexComponent
+from ..index.component import IndexComponent
 
 """ Template for DataSources"""
 class DataSource:

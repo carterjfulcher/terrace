@@ -5,6 +5,7 @@ from termcolor import colored
 import time 
 import pickle 
 import numpy as np 
+from datetime import datetime as dt 
 
 class Index:
   def __init__(self, 
@@ -25,10 +26,10 @@ class Index:
     self.weightingMethod = weightingMethod
     self.audit, self.create = strategy
     self.components = components
-    self.itialPrice = 100
+    self.initialPrice = 100
 
 
-    self.price: np.array = []
+    self.price: np.array = [self.initialPrice]
 
   # save and load Index to json
   def save(self, path: str):
@@ -47,12 +48,16 @@ class Index:
 
   def __update_spot_price(self, dataSource):
     for component in self.components:
-      component._spotPrice, component._change = dataSource.fetchSpotPrice(component)
+      if (quote := dataSource.fetchSpotPrice(component)):
+        component._spotPrice, component._change = quote
 
-  def __calculate(self, dataSource: Callable, auditResults=False):
+  def _calculate(self, dataSource: Callable, auditResults=False):
     self.__update_spot_price(dataSource)
     change = sum([i._change * i.weight for i in self.components])
-    self.price.append(change * self.price[-1] if self.price else self.itialPrice)
+    print(change, self.initialPrice, self.price)
+    price = (change * self.price[-1]) + self.price[-1]
+    print(f"{dt.now()}: {self.identifier} price: {price}")
+    self.price.append(price)
     if auditResults:
       self.auditMembers()
 

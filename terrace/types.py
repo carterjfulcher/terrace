@@ -6,11 +6,16 @@ class IndexType(Enum):
   NET_TOTAL_RETURN = 2,
 
 class Frequency(Enum):
-  DAILY = 0,
-  WEEKLY = 1,
-  MONTHLY = 2,
-  QUARTERLY = 3,
-  YEARLY = 4,
+  THREE_SECONDS = 3,
+  FIFTEEN_SECONDS = 15,
+  THIRTY_SECONDS = 30,
+  MINUTELY = 60,
+  HOURLY = 3600,
+  DAILY = 86400,
+  WEEKLY = 604800,
+  MONTHLY = 2592000,
+  QUARTERLY =  7776000,
+  YEARLY = 31536000,
 
 class WeightingMethod(Enum):
   EQUAL_WEIGHT = 0,
