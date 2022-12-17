@@ -6,7 +6,10 @@ import pyEX
 import os
 
 class IEXDataSource(DataSource):
-  def __init__(self, token: str = os.environ['iex_token'], base_url: str = "https://cloud.iexapis.com/stable/stock"):
+  def __init__(self, token: str = None, base_url: str = "https://cloud.iexapis.com/stable/stock"):
+    if 'iex_token' in os.environ:
+      token = os.environ['iex_token']
+    
     if not token:
       raise ValueError("IEX API token not provided")
     self.api_key = token
