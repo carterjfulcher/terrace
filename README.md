@@ -213,6 +213,12 @@ myIndex.components = IndexComponent.fromList(['AAPL', 'TSLA', 'MSFT', 'AMZN', 'G
 engine = CalculationEngine(IEXDataSource())
 engine.start(myIndex, Frequency.THREE_SECONDS)
 
+"""
+2022-12-17 00:22:43.148216: .TESTINDEX price: 98.1714
+2022-12-17 00:22:47.280392: .TESTINDEX price: 98.1714
+2022-12-17 00:22:51.532781: .TESTINDEX price: 98.1714
+"""
+
 ```
 
 ### Dissemination

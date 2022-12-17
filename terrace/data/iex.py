@@ -25,8 +25,6 @@ class IEXDataSource(DataSource):
     
     self.prev[component.identifier] = res
     return True
-    
-
 
   def fetchSpotPrice(self, component: IndexComponent) -> Tuple[float, float]:
     df = self._client.quote(component.identifier)

@@ -7,3 +7,4 @@ dist/
 terrace.egg-info
 *.pkl
 *.pickle
+test.pkl

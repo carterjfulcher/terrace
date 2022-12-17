@@ -54,7 +54,6 @@ class Index:
   def _calculate(self, dataSource: Callable, auditResults=False):
     self.__update_spot_price(dataSource)
     change = sum([i._change * i.weight for i in self.components])
-    print(change, self.initialPrice, self.price)
     price = (change * self.price[-1]) + self.price[-1]
     print(f"{dt.now()}: {self.identifier} price: {price}")
     self.price.append(price)
