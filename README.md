@@ -11,7 +11,7 @@ Open source platform for financial index creation, management, and operation
 - Index dissemination (via HTTP, RPC, or FTP)\*
 - Automatic rebalance and reconstitution
 - Quickly create and test indices
-- Backtesting integration with Fulcher Analytics\*
+- Backtesting integration 
 
 Note: Items with an \* are still under development
 
