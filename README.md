@@ -2,18 +2,16 @@
 
 [![Test](https://github.com/carterjfulcher/terrace/actions/workflows/test.yaml/badge.svg)](https://github.com/carterjfulcher/terrace/actions/workflows/test.yaml)
 
-Open source platform for financial index creation, management, and operation
+Open source algorithmic trading engine
 
 ## Features
 
-- Index calculation
-- Pre/Post Trade audits
-- Index dissemination (via HTTP, RPC, or FTP)\*
-- Automatic rebalance and reconstitution
-- Quickly create and test indices
-- Backtesting integration 
-
-Note: Items with an \* are still under development
+- Algorithmic Trading Engine 
+- Back Testing
+- Modular Data Layer
+- Portfolio Management 
+- Complex Modeling 
+- Modular
 
 ## Example
 
