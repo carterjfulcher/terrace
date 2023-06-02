@@ -2,15 +2,19 @@
 
 [![Test](https://github.com/carterjfulcher/terrace/actions/workflows/test.yaml/badge.svg)](https://github.com/carterjfulcher/terrace/actions/workflows/test.yaml)
 
-Open source algorithmic trading engine
+## Open source algorithmic trading engine, optimizing for a great developer experience.
 
-## Features
+```python3
 
-- Algorithmic Trading Engine 
+```
+
+## Modules
+
+- Algorithmic Trading Engine
 - Back Testing
 - Modular Data Layer
-- Portfolio Management 
-- Complex Modeling 
+- Portfolio Management
+- Complex Modeling
 - Modular
 
 ## Example
