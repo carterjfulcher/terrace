@@ -4,8 +4,19 @@
 
 ## Open source algorithmic trading engine, optimizing for a great developer experience.
 
-```python3
+Creating a strategy is easy:
 
+```python3
+from terrace.strategy import Strategy
+from terrace.ta import sma
+
+class TAStrategy(Strategy):
+  def step(self, ctx):
+    sma = ta.sma(ctx.close, 20)
+    if ctx.close > sma:
+      self.long()
+    elif ctx.close < sma:
+      self.short()
 ```
 
 ## Modules
