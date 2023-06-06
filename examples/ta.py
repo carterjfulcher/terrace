@@ -3,12 +3,11 @@
 Strategy
 
 """
-from terrace.strategy import Strategy, on_tick
-from terrace.strategy.tools import ta
+from terrace.strategy import Strategy
+from terrace.ta import sma
 
 class TAStrategy(Strategy):
-  @Strategy.on_tick
-  def handle_tick(self, ctx):
+  def step(self, ctx):
     sma = ta.sma(ctx.close, 20)
     if ctx.close > sma:
       self.long()
@@ -16,7 +15,6 @@ class TAStrategy(Strategy):
       self.short()
 
 """
-
 Live Trading
 
 """
