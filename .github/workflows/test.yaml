@@ -5,13 +5,11 @@ on:
   pull_request:
 
 jobs:
-  build:
-
+  unit:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: [3.9, 3.10.8]
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
@@ -25,3 +23,13 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+  lines:
+    name: Less than 1000 lines
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+    - name: Install SLOCCount
+      run: sudo apt-get install sloccount
+    - name: Check <1000 lines
+      run: sloccount terrace test examples extra; if [ $(sloccount terrace | sed -n 's/.*Total Physical Source Lines of Code (SLOC)[ ]*= \([^ ]*\).*/\1/p' | tr -d ',') -gt 1000 ]; then exit 1; fi

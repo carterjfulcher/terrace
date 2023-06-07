@@ -6,7 +6,7 @@ class Context:
     fields = ""
     for provider in self.providers:
       for field in provider.fields:
-        fields += f"({provider.name}) {field.name} -> {field.type}\n"
+        fields += f"({provider.name}) {field.name} -> {field.type}"
     return fields
   
   def __repr__(self):
