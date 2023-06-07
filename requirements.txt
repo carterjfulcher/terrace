@@ -35,6 +35,7 @@ pluggy==1.0.0
 prompt-toolkit==3.0.36
 ptyprocess==0.7.0
 pure-eval==0.2.2
+pydantic==1.10.8
 pyEX==0.5.0
 Pygments==2.13.0
 pytest==7.2.0
@@ -55,6 +56,7 @@ termcolor==2.1.1
 tomli==2.0.1
 traitlets==5.7.1
 twine==4.0.2
+typing_extensions==4.6.3
 tzdata==2022.7
 tzlocal==4.2
 urllib3==1.26.13
