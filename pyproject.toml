@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "terrace"
+name = "terrace-engine"
 version = "0.0.1"
 authors = [
   { name="Carter Fulcher", email="carter@fulcheranalytics.io" },

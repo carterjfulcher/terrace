@@ -36,6 +36,14 @@ Easily research, test, and deploy a variety of trading strategies across all ass
 
 <!-- ![](examples/diagram.png) -->
 
+## Install
+
+The current recommended way to install Terrace is using pip:
+
+```bash
+pip install terrace-engine
+```
+
 ## Demo
 
 Creating a strategy is easy:
