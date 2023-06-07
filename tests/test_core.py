@@ -1,10 +1,9 @@
-def test_strategy_creation():
-    from terrace.strategy import Strategy
-    from terrace.helpers import ta
-    class TAStrategy(Strategy):
-        def step(self, ctx):
-            sma = ta.sma(ctx.close, 20)
-            if ctx.close > sma:
-                self.long()
-            elif ctx.close < sma:
-                self.short()
+def test_context():
+    from terrace.data import Context
+    from terrace.data import CSV
+    custom_data = CSV('examples/sample.csv')
+    context = Context(custom_data)
+    print(context)
+
+if __name__ == "__main__":
+    test_context()

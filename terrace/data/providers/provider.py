@@ -1,2 +1,5 @@
+from terrace.data import Field 
+from typing import List
 class Provider:
-  pass
+  def __init__(self):
+    self.fields: List[Field] = []
