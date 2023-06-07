@@ -19,6 +19,10 @@
 
 ---
 
+Terrace aims to remain near 1000 lines at the core.
+
+---
+
 Creating a strategy is easy:
 
 ```python3
@@ -36,9 +40,4 @@ class TAStrategy(Strategy):
 
 ## Features
 
-- Algorithmic Trading Engine
-- Back Testing
-- Modular Data Layer
-- Portfolio Management
-- Complex Modeling
-- Modular
+![](examples/diagram.png)
