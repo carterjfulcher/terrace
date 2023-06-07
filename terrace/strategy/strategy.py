@@ -1,15 +1,15 @@
 from enum import Enum
 
 class Frequency(Enum):
-  TICK = 0,
-  SECOND = 1,
-  MINUTE = 2,
-  HOUR = 3,
-  DAY = 4,
-  WEEK = 5,
-  MONTH = 6,
-  QUARTER = 7,
-  YEAR = 8
+  TICK = 'tick',
+  SECOND = '1s',
+  MINUTE = '1m',
+  HOUR = '1hr',
+  DAY = '1d',
+  WEEK = '1wk',
+  MONTH = '1mo',
+  QUARTER = '1q',
+  YEAR = '1y'
 
 class Strategy:
   """

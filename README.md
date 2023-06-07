@@ -19,17 +19,16 @@
 
 ---
 
-*Terrace aims to remain near 1000 lines at the core, provide a flexible API, and great developer expereince.*
+_Terrace aims to remain near 1000 lines at the core, provide a flexible API, and great developer expereince._
 
-Easily research, test, and deploy a variety of trading strategies across all asset classes. 
-
-
+Easily research, test, and deploy a variety of trading strategies across all asset classes.
 
 ## Core
+
 - **Strategy** - Strategies are ambiguous to time and the asset they are trading against. They contain the rules for managing a portfolio
-- **Data Engine** - The data engine is responsible for collecting data and supplying it to the strategy via the trading engine 
+- **Data Engine** - The data engine is responsible for collecting data and supplying it to the strategy via the trading engine
 - **Trading Engine** - The trading engine manages state and connects the data engine to the strategy, as well as enforces risk management rules.
-- **Execution Engine** - The execution of trades is handled by the execution engine. The execution engine can send orders to exchanges asynchrnously in realtime. 
+- **Execution Engine** - The execution of trades is handled by the execution engine. The execution engine can send orders to exchanges asynchrnously in realtime.
 - **Back Testing Engine** - The back testing engine is a wrapper around the data engine and execution engine, simulating trades over historical data.
 <div align="center">
   <img src="examples/diagram.png" width="80%">
@@ -43,7 +42,7 @@ Creating a strategy is easy:
 
 ```python3
 from terrace.strategy import Strategy
-from terrace.ta import sma
+from terrace.helpers import ta
 
 class TAStrategy(Strategy):
   def step(self, ctx):
@@ -67,10 +66,10 @@ context = Context(Intrinio(), IEX(), Polygon(), custom_data)
 """
 >> print(context)
 
-=== [ Providers ] === 
+=== [ Providers ] ===
 Intrinio, IEX, Polygon, CSV
 
-=== [ Available Fields ] === 
+=== [ Available Fields ] ===
 (intrinio) close -> float*
 (intrinio) open -> float*
 (intrinio) high -> float*
@@ -81,13 +80,13 @@ Intrinio, IEX, Polygon, CSV
 (CSV) ask -> float*
 (CSV) customfield -> string*
 
-* indicates historical data is available 
+* indicates historical data is available
 
 """
 
 ```
 
-With a Strategy, and data, back testing and live trading is possible: 
+With a Strategy, and data, back testing and live trading is possible:
 
 ```python3
 """ Back Testing """
@@ -109,5 +108,3 @@ exchange = Alpaca(api_key=..., api_secret=...)
 engine.run(frequency='1m', exchange=exchange, target='AAPL')
 
 ```
-
-
