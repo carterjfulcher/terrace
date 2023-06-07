@@ -40,8 +40,12 @@ class TAStrategy(Strategy):
       self.short()
 ```
 
-## Features
-- **Modular design** - 
+## Core
+- **Strategy** - Strategies are ambiguous to time and the asset they are trading against. They contain the rules for managing a portfolio
+- **Data Engine** - The data engine is responsible for collecting data and supplying it to the strategy via the trading engine 
+- **Trading Engine** - The trading engine manages state and connects the data engine to the strategy, as well as enforces risk management rules.
+- **Execution Engine** - The execution of trades is handled by the execution engine. The execution engine can send orders to exchanges asynchrnously in realtime. 
+- **Back Testing Engine** - The back testing engine is a wrapper around the data engine and execution engine, simulating trades over historical data.
 <div align="center">
   <img src="examples/diagram.png" width="80%">
 </div>
