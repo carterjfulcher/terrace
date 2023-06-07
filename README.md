@@ -19,7 +19,9 @@
 
 ---
 
-Terrace aims to remain near 1000 lines at the core.
+*Terrace aims to remain near 1000 lines at the core, provide a flexible API, and great developer expereince.*
+
+Easily research, test, and deploy a variety of trading strategies across all asset classes. 
 
 ---
 
@@ -39,7 +41,7 @@ class TAStrategy(Strategy):
 ```
 
 ## Features
-
+- **Modular design** - 
 <div align="center">
   <img src="examples/diagram.png" width="80%">
 </div>
