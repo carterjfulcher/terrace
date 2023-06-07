@@ -11,6 +11,7 @@
 </h3>
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/carterjfulcher/terrace)](https://github.com/carterjfulcher/terrace/stargazers)
+[![Deploy](https://github.com/carterjfulcher/terrace/actions/workflows/prod.yaml/badge.svg)](https://github.com/carterjfulcher/terrace/actions/workflows/prod.yaml)
 [![Unit Test](https://github.com/carterjfulcher/terrace/actions/workflows/test.yaml/badge.svg)](https://github.com/carterjfulcher/terrace/actions/workflows/test.yaml)
 
 </div>
