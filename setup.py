@@ -5,7 +5,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 
 setup(
   name='terrace',
-  version='0.0.1',
+  version='1.0.0',
   url='https://github.com/carterjfulcher/terrace',
   author='carterjfulcher',
   author_email='carter@fulcheranalytics.io',
@@ -13,6 +13,6 @@ setup(
   platforms='any',
   license='MIT',
   ext_modules=[],
-  description="Open source platform for financial index creation, management, and operation",
+  description="an open source algorithmic trading engine optimized for a great developer experience",
   long_description='See https://github.com/carterjfulcher/terrace',
 )

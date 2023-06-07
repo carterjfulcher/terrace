@@ -1,1 +1,0 @@
-Strategies - contains the essence of the strategy, can be traded on any market or target
