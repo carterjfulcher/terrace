@@ -40,4 +40,8 @@ class TAStrategy(Strategy):
 
 ## Features
 
-![](examples/diagram.png)
+<div align="center">
+  <img src="examples/diagram.png" width="80%">
+</div>
+
+<!-- ![](examples/diagram.png) -->
