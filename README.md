@@ -45,6 +45,14 @@ The current recommended way to install Terrace is using pip:
 pip install terrace-engine
 ```
 
+You can also install from source:
+
+```bash
+git clone https://github.com/carterjfulcher/terrace.git
+cd terrace
+python3 -m pip install -e . # or `py3 -m pip install -e .` if you are on windows
+```
+
 ## Demo
 
 Creating a strategy is easy:
