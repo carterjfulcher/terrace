@@ -6,7 +6,7 @@
 
 <h3>
 
-[Home Page](https://github.com/carterjfulcher/terrace) | [Documentation](https://google.com) | [Discord](https://discord.gg/7NnvrG3Rt6) | [Examples](examples)
+[Home Page](https://github.com/carterjfulcher/terrace) | [Documentation](https://carterjfulcher.notion.site/6c249ed1b0bb411b816e65a382ce29ca?v=a92ea23ac1554de49dc38d5a7ca5438e) | [Discord](https://discord.gg/7NnvrG3Rt6) | [Examples](examples)
 
 </h3>
 
