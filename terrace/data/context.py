@@ -1,10 +1,18 @@
 class Context:
   def __init__(self, *args):
-    self.providers = args
+    self._providers = args
+
+  @property
+  def providers(self):
+    return self._providers
+  
+  @providers.getter
+  def providers(self):
+    return [i.name for i in self._providers]
 
   def _render_fields(self):
     fields = ""
-    for provider in self.providers:
+    for provider in self._providers:
       for field in provider.fields:
         fields += f"({provider.name}) {field.name} -> {field.type}"
     return fields
