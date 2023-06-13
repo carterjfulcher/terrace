@@ -2,8 +2,7 @@ from terrace.data.providers import Provider
 from terrace.data import Field 
 import pandas as pd 
 from pydantic import validate_arguments
-from pydantic.fields import Optional
-from typing import List
+from typing import List, Optional
 
 class FileProvider(Provider):
   @validate_arguments
@@ -21,7 +20,7 @@ class FileProvider(Provider):
       if col not in df.columns:
         raise ValueError(f"Column {col} not found in {self.filename}")
     if self.index is not None:
-      self.df.set_index(self.index, inplace=True)
+      self.df = df.set_index(self.index, inplace=True)
     if self.columns is not None:
       self.df = df[self.columns]
     else:

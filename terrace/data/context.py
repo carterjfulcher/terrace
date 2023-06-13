@@ -1,5 +1,6 @@
 class Context:
   def __init__(self, *args):
+    print(args)
     self._providers = args
 
   @property
@@ -18,4 +19,5 @@ class Context:
     return fields
   
   def __repr__(self):
-    return f"=== [ Providers ] ===\n{', '.join([i.name for i in self.providers])}\n=== [ Fields ] ===\n{self._render_fields()}"
+    print(self.providers)
+    return f"=== [ Providers ] ===\n{', '.join([i.name for i in self._providers])}\n=== [ Fields ] ===\n{self._render_fields()}"
