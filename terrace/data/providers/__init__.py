@@ -1,1 +1,1 @@
-from .provider import Provider, field
+from .provider import Provider

@@ -5,6 +5,7 @@ env/
 dist/
 .pypirc
 terrace.egg-info
+.env
 *.pkl
 *.pickle
 test.pkl

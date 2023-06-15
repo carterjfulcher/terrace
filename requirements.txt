@@ -32,7 +32,6 @@ pickleshare==0.7.5
 Pillow==9.3.0
 pkginfo==1.9.2
 pluggy==1.0.0
-polygon-api-client==1.10.1
 prompt-toolkit==3.0.36
 ptyprocess==0.7.0
 pure-eval==0.2.2
@@ -41,6 +40,7 @@ pyEX==0.5.0
 Pygments==2.13.0
 pytest==7.2.0
 python-dateutil==2.8.2
+python-dotenv==1.0.0
 pytz==2022.6
 pytz-deprecation-shim==0.1.0.post0
 readme-renderer==37.3
@@ -64,6 +64,5 @@ urllib3==1.26.13
 wcwidth==0.2.5
 webencodings==0.5.1
 websocket-client==1.4.2
-websockets==11.0.3
 xlrd==2.0.1
 zipp==3.11.0
