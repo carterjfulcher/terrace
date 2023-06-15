@@ -9,12 +9,9 @@ class WheelStrategy(Strategy):
     options = ctx.polygon.get_options("BIBL", "call", closest_friday_date.strftime("%Y-%m-%d"))
     print(options)
     for index, row in options.iterrows():
-      price = ctx.polygon.get_options_daily_open_close(row['ticker'], closest_friday_date.strftime("%Y-%m-%d"))
+      price = ctx.polygon.get_options_daily_open_close(row['ticker'], (ctx.time - timedelta(1)).strftime("%Y-%m-%d"))
       print(price)
       break
-
-
-
 
 if __name__ == "__main__":
   wheel = WheelStrategy()
